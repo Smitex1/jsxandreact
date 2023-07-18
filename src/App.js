@@ -1,25 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React from 'react';
+import { Card } from 'react-bootstrap';
+import Name from './name';
+import Price from './price';
+import Description from './description';
+import Image from './image';
+import product from './product';
+
+const firstName = 'cuisine limited'; 
+
+  const App = () => {
+    return (
+      <div>
+        {firstName ? (
+          <div>
+            <Card style={{ width: '18rem' }}>
+              <Card.Img variant="top" src={product.image} />
+              <Card.Body>
+                <Name />
+                <Price />
+                <Description />
+              </Card.Body>
+            </Card>
+            <p>Hello, {firstName}!</p>
+            <Image />
+          </div>
+        ) : (
+          <p>Your one and only foreign rice</p>
+        )}
+      </div>
+    );
+  };
 
 export default App;
